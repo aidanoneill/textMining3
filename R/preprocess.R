@@ -10,7 +10,7 @@ function(data,
   require("RTextTools")
   require("tm")
   
-  data = tm_map(data, 
+  data = tm_map(as.VCorpus(data), 
       content_transformer(function(x) iconv(x, to='UTF-8-MAC', sub='byte')), mc.cores=1)
   # Stops the tm package from trying to implement a multi-core method as this is computationally unnecessary and not supported by most machines
   

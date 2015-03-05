@@ -67,7 +67,7 @@ function (data, removewhitespace, removepunctuation, removestopwords,
 {
     require("RTextTools")
     require("tm")
-    data = tm_map(data, content_transformer(function(x) iconv(x, 
+    data = tm_map(as.VCorpus(data), content_transformer(function(x) iconv(x, 
         to = "UTF-8-MAC", sub = "byte")), mc.cores = 1)
     funs = list()
     if (removewhitespace == TRUE) 
